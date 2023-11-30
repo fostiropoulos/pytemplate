@@ -1,0 +1,34 @@
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false
+
+[project]
+
+name = "pytemplate"
+
+authors = [{ author = "AUTHOR_NAME", email = "AUTHOR_EMAIL" }]
+
+dynamic = ["version"]
+keywords = []
+description = "PROJECT_DESCRIPTION"
+requires-python = ">=PYTHON_VERSION"
+readme = "README.md"
+dependencies = []
+license = { text = "proprietary" }
+
+[project.optional-dependencies]
+dev = ["mypy", "flake8", "pytest"]
+[project.urls]
+
+homepage = "PROJECT_WEBSITE"
+
+[tool.setuptools.dynamic]
+version = { attr = "pytemplate.__version__" }
