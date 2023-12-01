@@ -6,7 +6,6 @@ read -p "Enter project author name: " AUTHOR_NAME
 read -p "Enter project author email: " AUTHOR_EMAIL
 read -p "Enter git project url: " GIT_URL
 OLD_PROJECT_NAME="pytemplate"
-cd ..
 rm -rf .git
 echo $PWD
 find . -not -path "./scripts/*" -type f -exec sed -i "s/$OLD_PROJECT_NAME/$PROJECT_NAME/g" {} \;
