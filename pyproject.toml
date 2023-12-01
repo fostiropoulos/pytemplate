@@ -14,7 +14,7 @@ namespaces = false
 
 name = "pytemplate"
 
-authors = [{ author = "AUTHOR_NAME", email = "AUTHOR_EMAIL" }]
+authors = [{ name = "AUTHOR_NAME", email = "AUTHOR_EMAIL" }]
 
 dynamic = ["version"]
 keywords = []
@@ -25,7 +25,7 @@ dependencies = []
 license = { text = "proprietary" }
 
 [project.optional-dependencies]
-dev = ["mypy", "flake8", "pytest"]
+dev = ["mypy", "flake8", "pytest", "black", "pylint"]
 [project.urls]
 
 homepage = "PROJECT_WEBSITE"

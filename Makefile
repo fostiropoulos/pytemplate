@@ -1,30 +1,27 @@
 
-.PHONY: default docs pages package publish
+.PHONY: default lint test install
 
 PROJ=pytemplate
 
 default:
 	@echo "No default action, must supply a target"
 
-# update docs locally
-docs:
-	pdoc --force --html -o ~/docs src/$(PROJ)
+install:
+	pip install -e ."[dev]" -v
 
-# update the docs in gh-pages
-pages: docs
-	git -C ~/docs/$(PROJ) add .
-	git -C ~/docs/$(PROJ) commit -m "Update docs"
-	git -C ~/docs/$(PROJ) push origin gh-pages
 
-# run tests and build the package
-package:
-	packager --tests unit
+lint: black flake8 mypy pylint
+	echo "Done"
 
-# publish a snapshot build, first ensuring we are up to date with main
-publish:
-	packager --tests unit --prbase origin/main --pub
+flake8:
+	flake8 ./src/ --count --show-source --statistics
+	flake8 --ignore=F841,W503,DOC ./tests/
 
-# build and publish a release build
-release:
-	packager --wheel-suff= --tests none --pub --repo releases
+black:
+	black --check --preview .
 
+pylint:
+	pylint src
+
+mypy:
+	mypy src
