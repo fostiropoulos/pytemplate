@@ -15,10 +15,11 @@ find . -not -path "./scripts/*" -type f -exec sed -i "s/AUTHOR_EMAIL/$AUTHOR_EMA
 find . -not -path "./scripts/*" -type f -exec sed -i "s/PROJECT_DESCRIPTION/$PROJECT_DESCRIPTION/g" {} \;
 find . -not -path "./scripts/*" -type f -exec sed -i "s/PYTHON_VERSION/$PYTHON_VERSION/g" {} \;
 find . -not -path "./scripts/*" -type f -exec sed -i "s/PROJECT_WEBSITE/$PROJECT_WEBSITE/g" {} \;
-git init
-git add .gitattributes .gitignore
-git commit -m "initial commit"
 mv src/$OLD_PROJECT_NAME src/$PROJECT_NAME
 echo "# $PROJECT_NAME" > README.md
+git init
 git add .
-git commit -m "Make template project"
+git commit -m "initial commit"
+git branch -M main
+git remote add origin $GIT_URL
+git push -u origin main
