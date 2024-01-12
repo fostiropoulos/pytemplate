@@ -21,11 +21,20 @@ keywords = []
 description = "PROJECT_DESCRIPTION"
 requires-python = ">=PYTHON_VERSION"
 readme = "README.md"
+license = { file = "LICENSE" }
 dependencies = []
-license = { text = "proprietary" }
 
 [project.optional-dependencies]
-dev = ["mypy", "flake8", "pytest", "black", "pylint"]
+dev = [
+    "mypy",
+    "flake8",
+    "pytest",
+    "black",
+    "pylint",
+    "codecov-cli",
+    "pytest-cov",
+    "pytest-xdist",
+]
 [project.urls]
 
 homepage = "PROJECT_WEBSITE"

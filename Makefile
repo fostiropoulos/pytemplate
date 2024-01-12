@@ -25,3 +25,6 @@ pylint:
 
 mypy:
 	mypy src
+
+package:
+	python -m build
